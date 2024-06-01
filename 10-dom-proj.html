@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dom-Proj</title>
+    <style>
+
+      body{
+        font-family: Helvetica;
+      }
+
+      .subscribe-button {
+        border: none;
+        background-color: black;
+        color: aliceblue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-bottom: 35px;
+      }
+      .is-subscribed{
+        background-color: rgb(240, 240, 240);
+        color: black;
+
+
+      }
+      .cost-input{
+        font-size: 15px;
+        /*
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        */
+        padding: 10px;
+      }
+      .calculate-button{
+        border: none;
+        background-color: green;
+        color: aliceblue;
+        padding: 12px;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight:normal;
+        cursor: pointer;
+
+      }
+    </style>
+  </head>
+  <body>
+    <p>Youtube Subscride button</p>
+    <button onclick="htm();
+    " class="js-subscribe-button  subscribe-button">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="hand(event);">
+
+    <button onclick=" 
+    calk();" class="calculate-button"> Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+
+      window.document
+
+      function hand(event){
+        if(event.key === 'Enter'){
+          calk();
+
+      }
+      }
+
+      function calk(){
+        const inputEl = document.querySelector('.js-cost-input');
+        let cost = Number(inputEl.value);
+        if(cost < 40){
+          cost += 10;
+        }
+        document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+
+      }
+
+
+      function htm(){
+        const but = document.querySelector('.js-subscribe-button');
+
+        if (but.innerText === 'Subscribe'){
+          but.innerText = 'Subscribed';
+          but.classList.add('is-subscribed');
+
+        } else {
+          but.innerText = 'Subscribe';
+          but.classList.remove('is-subscribed');
+        }
+
+      }
+    
+    </script>
+  </body>
+</html>
